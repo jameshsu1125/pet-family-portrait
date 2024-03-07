@@ -7,14 +7,15 @@ type T = { row: number; col: number };
 
 import { LegacyRef } from 'react';
 
-const OFFSET = 90;
+const OFFSET = 120;
 
 const PhotoRow = memo(({ children, row }: IReactProps & Omit<T, 'col'>) => {
   const parallax = useParallax({
     speed: row % 2 ? -OFFSET : OFFSET,
   });
+
   return (
-    <div ref={parallax.ref as LegacyRef<HTMLDivElement>} className='w-1/5'>
+    <div ref={parallax.ref as LegacyRef<HTMLDivElement>} className='w-1/3'>
       {children}
     </div>
   );
@@ -41,7 +42,7 @@ const Photo = memo(({ row, col }: T) => {
 const Album = memo(() => (
   <div className='album'>
     <div className='photos'>
-      {[...new Array(6).keys()].map((row) => {
+      {[...new Array(3).keys()].map((row) => {
         return (
           <PhotoRow key={`row-${row}`} row={row}>
             {[...new Array(6).keys()].map((col) => {

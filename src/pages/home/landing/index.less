@@ -1,5 +1,5 @@
 .Landing {
-  @apply flex w-full justify-center;
+  @apply flex w-full justify-center overflow-x-hidden;
 
   & > div {
     min-width: 768px;
@@ -19,9 +19,7 @@
       @apply absolute flex h-full w-full justify-center overflow-hidden;
 
       .photos {
-        top: 50%;
-        margin-top: (@h * 6) * -0.5;
-        width: @w * 6;
+        width: @w * 3;
         opacity: 0.5;
         transform: rotate(-25deg);
 
