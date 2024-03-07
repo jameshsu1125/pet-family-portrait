@@ -1,0 +1,215 @@
+.Main {
+  @apply flex w-full justify-center;
+
+  & > div {
+    min-width: 768px;
+    max-width: 1280px !important;
+    @apply container flex flex-row items-start;
+
+    .lace {
+      background-image: url('./img/bg.svg');
+      background-size: 100%;
+      @apply h-full w-10 bg-white;
+    }
+
+    .title {
+      width: image-width(@img) * @scale;
+      height: image-height(@img) * @scale;
+      background-image: url(@img);
+      background-size: 100%;
+
+      @scale: 0.8;
+      @img: './img/title.svg';
+
+      @apply my-20;
+    }
+
+    .belt {
+      background-image: url('./img/belt.svg');
+      background-position: center;
+      background-repeat: repeat-x;
+      @apply relative  w-full;
+
+      .knot {
+        margin-top: 0 - image-height(@img) * @scale * 0.5;
+        margin-left: 0 - image-width(@img) * @scale * 0.5;
+        width: image-width(@img) * @scale;
+        height: image-height(@img) * @scale;
+        background-image: url(@img);
+        background-size: 100%;
+
+        @scale: 1;
+        @img: './img/knot.svg';
+
+        @apply absolute left-1/2 top-1/2;
+      }
+
+      .photo {
+        @apply relative h-52 w-52 rounded-full border-4 border-primary bg-backgroundColor p-2;
+
+        .img {
+          @apply relative h-full w-full overflow-hidden rounded-full bg-gray-300;
+
+          &::before {
+            content: '';
+            @apply absolute h-full w-full bg-cover bg-center opacity-30;
+          }
+
+          &::after {
+            background-size: 70%;
+            content: '';
+            @apply absolute h-full w-full bg-center bg-no-repeat;
+          }
+        }
+
+        .i0 {
+          &::before {
+            background-image: url('./img/p0.jpg');
+          }
+
+          &::after {
+            background-image: url('./img/t0.svg');
+          }
+        }
+
+        .i1 {
+          &::before {
+            background-image: url('./img/p1.jpg');
+          }
+
+          &::after {
+            background-image: url('./img/t1.svg');
+          }
+        }
+      }
+    }
+
+    .arrow {
+      width: image-width(@img) * @scale;
+      height: image-height(@img) * @scale;
+      background-image: url(@img);
+      background-size: 100%;
+      background-repeat: no-repeat;
+
+      @scale: 1;
+      @img: './img/arrow.svg';
+      @apply mb-10 mt-5;
+    }
+
+    .paper {
+      width: 600px * 0.8;
+      height: 707px * 0.8;
+      background-image: url('./img/knot2.svg');
+      background-position: center calc(~'100% - 40px');
+      background-size: 100%;
+      background-repeat: no-repeat;
+
+      @apply bg-white p-5 shadow-xl;
+
+      .img {
+        padding-bottom: 100%;
+        background-image: url('./img/cover.jpg');
+        background-position: center;
+        background-size: cover;
+
+        @apply relative w-full bg-gray-300;
+
+        &::after {
+          left: 75%;
+          width: image-width(@img) * @scale;
+          height: image-height(@img) * @scale;
+          background-image: url(@img);
+          background-size: 100%;
+          content: '';
+
+          @scale: 0.8;
+          @img: './img/sign.svg';
+          @apply absolute bottom-6;
+        }
+      }
+    }
+
+    .hr {
+      width: image-width(@img) * @scale;
+      height: image-height(@img) * @scale;
+      background-image: url(@img);
+      background-size: 100%;
+
+      @scale: 0.8;
+      @img: './img/hr.svg';
+
+      @apply my-20;
+    }
+
+    .title-2 {
+      width: image-width(@img) * @scale;
+      height: image-height(@img) * @scale;
+      background-image: url(@img);
+      background-size: 100%;
+
+      @scale: 0.8;
+      @img: './img/title-0.svg';
+    }
+
+    .footer {
+      @apply mt-20 flex flex-row justify-center;
+
+      .cat-0 {
+        width: image-width(@img) * @scale;
+        height: image-height(@img) * @scale;
+        background-image: url(@img);
+        background-size: 100%;
+
+        @scale: 0.7;
+        @img: './img/cat-0.svg';
+      }
+
+      .cat-1 {
+        width: image-width(@img) * @scale;
+        height: image-height(@img) * @scale;
+        background-image: url(@img);
+        background-size: 100%;
+
+        @scale: 0.7;
+        @img: './img/cat-1.svg';
+      }
+
+      .line {
+        @apply bg-line relative flex h-16 flex-row items-center rounded-2xl px-5;
+
+        &::before {
+          width: image-width(@img) * @scale;
+          height: image-height(@img) * @scale;
+          background-image: url(@img);
+          background-size: 100%;
+          content: '';
+
+          @scale: 0.1;
+          @img: './img/line.png';
+        }
+
+        &::after {
+          width: image-width(@img) * @scale;
+          height: image-height(@img) * @scale;
+          background-image: url(@img);
+          background-size: 100%;
+          content: '';
+
+          @scale: 0.8;
+          @img: './img/line-txt.svg';
+          @apply ml-5;
+        }
+      }
+
+      .qr {
+        width: image-width(@img) * @scale;
+        height: image-height(@img) * @scale;
+        background-image: url(@img);
+        background-size: 100%;
+
+        @scale: 0.6;
+        @img: './img/qr.png';
+      }
+    }
+  }
+}

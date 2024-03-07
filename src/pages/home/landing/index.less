@@ -1,0 +1,144 @@
+.Landing {
+  @apply flex w-full justify-center;
+
+  & > div {
+    min-width: 768px;
+    max-width: 1280px !important;
+    @apply container flex flex-row items-start;
+
+    .lace {
+      background-image: url('./img/bg.svg');
+      background-size: 100%;
+      @apply h-full w-10 bg-primary;
+    }
+
+    .album {
+      @w: 450px;
+      @h: 530px;
+
+      @apply absolute flex h-full w-full justify-center overflow-hidden;
+
+      .photos {
+        top: 50%;
+        margin-top: (@h * 6) * -0.5;
+        width: @w * 6;
+        opacity: 0.5;
+        transform: rotate(-25deg);
+
+        @apply absolute flex h-full flex-row;
+
+        .photo {
+          width: 100%;
+          height: @h;
+          @apply p-3;
+
+          .paper {
+            padding: 25px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+
+            @apply flex h-full w-full flex-col justify-between bg-backgroundColor;
+
+            .i0 {
+              background-image: url('./img/album/0.jpg');
+            }
+
+            .i1 {
+              background-image: url('./img/album/1.jpg');
+            }
+
+            .i2 {
+              background-image: url('./img/album/2.jpg');
+            }
+
+            .i3 {
+              background-image: url('./img/album/3.jpg');
+            }
+
+            .i4 {
+              background-image: url('./img/album/4.jpg');
+            }
+
+            .i5 {
+              background-image: url('./img/album/5.jpg');
+            }
+
+            .i6 {
+              background-image: url('./img/album/6.jpg');
+            }
+
+            .p0 {
+              background-image: url('./img/album/p0.jpg');
+            }
+
+            .p1 {
+              background-image: url('./img/album/p1.jpg');
+            }
+
+            .p2 {
+              background-image: url('./img/album/p2.jpg');
+            }
+
+            .p3 {
+              background-image: url('./img/album/p3.jpg');
+            }
+
+            .p4 {
+              background-image: url('./img/album/p4.jpg');
+            }
+
+            .img {
+              padding-bottom: 100%;
+              background-position: center;
+              background-size: cover;
+
+              @apply w-full bg-gray-300;
+            }
+
+            .txt {
+              @apply m-2 w-full text-center;
+            }
+          }
+        }
+      }
+    }
+
+    .knot {
+      margin-top: -220px;
+      margin-bottom: -250px;
+      width: 100%;
+      height: image-height(@img) * @scale;
+      background-image: url(@img);
+      background-position: center;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      pointer-events: none;
+
+      @scale: 0.6;
+      @img: './img/knot.svg';
+    }
+
+    .headline {
+      @apply flex w-full items-start justify-center;
+
+      .content {
+        @apply flex w-full max-w-96 justify-center;
+
+        .subtitle {
+          @apply absolute left-1/2 -ml-36 flex h-full w-16 flex-col items-center justify-end space-y-3 pb-5;
+
+          & > div {
+            @apply h-8 w-8 rounded-full bg-primary;
+          }
+        }
+
+        .title {
+          @apply flex h-full flex-1 flex-col items-center justify-start space-y-10;
+
+          & > div {
+            @apply h-36 w-36 rounded-full bg-primary;
+          }
+        }
+      }
+    }
+  }
+}
