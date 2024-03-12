@@ -1,9 +1,9 @@
 import { memo, useState } from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax';
 import { HomeContext, HomeState, THomeState } from './config';
 import './index.less';
 import Landing from './landing';
 import Main from './main';
-import { ParallaxProvider } from 'react-scroll-parallax';
 
 const Home = memo(() => {
   const [state, setState] = useState<THomeState>(HomeState);

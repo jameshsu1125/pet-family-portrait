@@ -1,9 +1,10 @@
 .Landing {
-  @apply flex w-full justify-center overflow-x-hidden;
+  @apply flex h-full w-full justify-center overflow-hidden overflow-x-hidden;
 
   & > div {
     min-width: 768px;
-    max-width: 1024px !important;
+    max-width: 768px !important;
+    min-height: 720px;
 
     @scale: 0.68;
     @apply container flex flex-row items-start;
@@ -37,10 +38,6 @@
             box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 
             @apply flex h-full w-full flex-col justify-between bg-backgroundColor;
-
-            .i0 {
-              background-image: url('./img/album/0.jpg');
-            }
 
             each(range(24), {
               .i@{value} {
@@ -77,6 +74,18 @@
 
       @scale: 0.6;
       @img: './img/knot.svg';
+
+      @media only screen and (max-height: 885px) {
+        & {
+          margin-top: -380px;
+        }
+      }
+
+      @media only screen and (max-height: 740px) {
+        & {
+          display: none;
+        }
+      }
     }
 
     .footer {
@@ -128,8 +137,10 @@
         .logo {
           padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
           width: 100%;
+          // background-image: url(@img);
 
           @img: './img/headline.svg';
+          @apply relative;
 
           & > div {
             @apply absolute bottom-0 left-0 right-0 top-0 flex flex-col items-center justify-start;

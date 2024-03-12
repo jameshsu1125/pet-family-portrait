@@ -5,7 +5,7 @@ import { Context, InitialState, Reducer } from '@/settings/constant';
 import '@/settings/global.less';
 import { ActionType, TContext } from '@/settings/type';
 import Fetcher, { contentType, formatType } from 'lesca-fetcher';
-import { memo, useMemo, useReducer } from 'react';
+import { memo, useEffect, useMemo, useReducer } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './home';
@@ -31,6 +31,10 @@ const RoutePages = memo(() => (
 const App = () => {
   const [state, setState] = useReducer(Reducer, InitialState);
   const value: TContext = useMemo(() => [state, setState], [state]);
+
+  useEffect(() => {
+    window.location.hash = '';
+  }, []);
 
   return (
     <Context.Provider {...{ value }}>
