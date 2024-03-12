@@ -18,7 +18,8 @@ export default {
     colors: {
       ...color,
       primary: '#cc3333',
-      line: '#6b991c',
+      secondary: '#e25744',
+      line: '#00ca42',
       backgroundColor: '#f7f6f0',
       textColor: '#eee',
     },

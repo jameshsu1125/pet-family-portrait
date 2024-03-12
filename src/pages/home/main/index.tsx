@@ -27,7 +27,7 @@ const Footer = memo(() => {
   return (
     <div className='footer'>
       <div className='cat-0' />
-      <div className='flex flex-1 flex-col items-center justify-center space-y-5 px-5'>
+      <div className='flex flex-1 flex-col items-center justify-center space-y-16 px-5'>
         <div className='line' />
         <div className='qr' />
       </div>

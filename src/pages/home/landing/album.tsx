@@ -21,18 +21,11 @@ const PhotoRow = memo(({ children, row }: IReactProps & Omit<T, 'col'>) => {
   );
 });
 
-const Photo = memo(({ row, col }: T) => {
+const Photo = memo(({ index }: { index: number }) => {
   return (
     <div className='photo'>
       <div className='paper'>
-        <div
-          className={twMerge(
-            'img',
-            (col + row) % 2
-              ? `i${Math.floor(Math.random() * 7)}`
-              : `p${Math.floor(Math.random() * 5)}`,
-          )}
-        />
+        <div className={twMerge('img', 'i' + index)} />
         <div className='txt'>something studio</div>
       </div>
     </div>
@@ -42,11 +35,11 @@ const Photo = memo(({ row, col }: T) => {
 const Album = memo(() => (
   <div className='album'>
     <div className='photos'>
-      {[...new Array(3).keys()].map((row) => {
+      {[...new Array(4).keys()].map((row) => {
         return (
           <PhotoRow key={`row-${row}`} row={row}>
             {[...new Array(6).keys()].map((col) => {
-              return <Photo key={`${row}-${col}`} col={col} row={row} />;
+              return <Photo key={`${row}-${col}`} index={row * 6 + col} />;
             })}
           </PhotoRow>
         );

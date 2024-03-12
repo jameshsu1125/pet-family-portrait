@@ -3,13 +3,15 @@
 
   & > div {
     min-width: 768px;
-    max-width: 1280px !important;
+    max-width: 1024px !important;
+
+    @scale: 0.68;
     @apply container flex flex-row items-start;
 
     .lace {
       background-image: url('./img/bg.svg');
       background-size: 100%;
-      @apply h-full w-10 bg-primary;
+      @apply bg-secondary h-full w-10;
     }
 
     .album {
@@ -19,7 +21,7 @@
       @apply absolute flex h-full w-full justify-center overflow-hidden;
 
       .photos {
-        width: @w * 3;
+        width: @w * 4;
         opacity: 0.5;
         transform: rotate(-25deg);
 
@@ -40,49 +42,11 @@
               background-image: url('./img/album/0.jpg');
             }
 
-            .i1 {
-              background-image: url('./img/album/1.jpg');
-            }
-
-            .i2 {
-              background-image: url('./img/album/2.jpg');
-            }
-
-            .i3 {
-              background-image: url('./img/album/3.jpg');
-            }
-
-            .i4 {
-              background-image: url('./img/album/4.jpg');
-            }
-
-            .i5 {
-              background-image: url('./img/album/5.jpg');
-            }
-
-            .i6 {
-              background-image: url('./img/album/6.jpg');
-            }
-
-            .p0 {
-              background-image: url('./img/album/p0.jpg');
-            }
-
-            .p1 {
-              background-image: url('./img/album/p1.jpg');
-            }
-
-            .p2 {
-              background-image: url('./img/album/p2.jpg');
-            }
-
-            .p3 {
-              background-image: url('./img/album/p3.jpg');
-            }
-
-            .p4 {
-              background-image: url('./img/album/p4.jpg');
-            }
+            each(range(24), {
+              .i@{value} {
+                background-image: url('./img/album/@{value}.jpg');
+              }
+            });
 
             .img {
               padding-bottom: 100%;
@@ -115,25 +79,184 @@
       @img: './img/knot.svg';
     }
 
+    .footer {
+      @apply absolute bottom-8 flex w-full flex-col items-center justify-start;
+
+      button {
+        @apply mb-12 rounded-l-full rounded-r-full bg-primary px-10 py-5 duration-100;
+
+        & > div {
+          width: image-width(@img) * @scale;
+          height: image-height(@img) * @scale;
+          background-color: #fff;
+
+          mask-image: url(@img);
+          mask-size: 100%;
+          @img: './img/btn-txt.svg';
+        }
+
+        &:hover {
+          @apply bg-gray-300;
+
+          & > div {
+            @apply bg-black;
+          }
+        }
+
+        &:active {
+          @apply scale-95;
+        }
+      }
+
+      .sponsor {
+        width: image-width(@img) * @scale;
+        height: image-height(@img) * @scale;
+        background-image: url(@img);
+        background-size: 100%;
+
+        @img: './img/sponsor.svg';
+      }
+    }
+
     .headline {
       @apply flex w-full items-start justify-center;
 
       .content {
-        @apply flex w-full max-w-96 justify-center;
+        max-width: 520px;
+        @apply flex w-full justify-center;
 
-        .subtitle {
-          @apply absolute left-1/2 -ml-36 flex h-full w-16 flex-col items-center justify-end space-y-3 pb-5;
+        .logo {
+          padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+          width: 100%;
 
-          & > div {
-            @apply h-8 w-8 rounded-full bg-primary;
-          }
-        }
-
-        .title {
-          @apply flex h-full flex-1 flex-col items-center justify-start space-y-10;
+          @img: './img/headline.svg';
 
           & > div {
-            @apply h-36 w-36 rounded-full bg-primary;
+            @apply absolute bottom-0 left-0 right-0 top-0 flex flex-col items-center justify-start;
+
+            & > div:nth-child(1) {
+              width: image-width(@img) * @scale;
+              height: image-height(@img) * @scale;
+              background-image: url(@img);
+              background-size: 100%;
+              background-repeat: no-repeat;
+
+              @img: './img/headline-0.svg';
+            }
+
+            & > div:nth-child(2) {
+              position: relative;
+              margin-top: 4px;
+              width: image-width(@img) * @scale;
+              height: image-height(@img) * @scale;
+
+              @img: './img/headline-1.svg';
+
+              & > div {
+                position: absolute;
+                left: 50%;
+                background-repeat: no-repeat;
+              }
+
+              & > div:nth-child(1) {
+                margin-top: 2px;
+                margin-left: -145px;
+                width: image-width(@img) * @scale;
+                height: image-height(@img) * @scale;
+                background-image: url(@img);
+                background-size: 100%;
+
+                @img: './img/t0.svg';
+              }
+
+              & > div:nth-child(2) {
+                margin-top: 0;
+                margin-left: 3px;
+                width: image-width(@img) * @scale;
+                height: image-height(@img) * @scale;
+                background-image: url(@img);
+                background-size: 100%;
+
+                @img: './img/t1.svg';
+              }
+
+              & > div:nth-child(3) {
+                margin-top: 136px;
+                margin-left: -262px;
+                width: image-width(@img) * @scale;
+                height: image-height(@img) * @scale;
+                background-image: url(@img);
+                background-size: 100%;
+
+                @img: './img/t2.svg';
+              }
+
+              & > div:nth-child(4) {
+                margin-top: 129px;
+                margin-left: -128px;
+                width: image-width(@img) * @scale;
+                height: image-height(@img) * @scale;
+                background-image: url(@img);
+                background-size: 100%;
+
+                @img: './img/t3.svg';
+              }
+
+              & > div:nth-child(5) {
+                margin-top: 127px;
+                margin-left: 8px;
+                width: image-width(@img) * @scale;
+                height: image-height(@img) * @scale;
+                background-image: url(@img);
+                background-size: 100%;
+
+                @img: './img/t4.svg';
+              }
+
+              & > div:nth-child(6) {
+                margin-top: 133px;
+                margin-left: 144px;
+                width: image-width(@img) * @scale;
+                height: image-height(@img) * @scale;
+                background-image: url(@img);
+                background-size: 100%;
+
+                @img: './img/t5.svg';
+              }
+            }
+
+            & > div:nth-child(3) {
+              margin-top: 9px;
+              width: image-width(@img) * @scale;
+              height: image-height(@img) * @scale;
+              background-image: url(@img);
+              background-size: 100%;
+              background-repeat: no-repeat;
+
+              @img: './img/headline-2.svg';
+            }
+
+            & > div:nth-child(4) {
+              margin-top: 35px;
+              width: image-width(@img) * @scale;
+              height: image-height(@img) * @scale;
+              background-image: url(@img);
+              background-size: 100%;
+              background-repeat: no-repeat;
+
+              @img: './img/headline-3.svg';
+            }
+
+            & > div:nth-child(5) {
+              margin-top: 63px;
+              width: image-width(@img) * @scale;
+              height: image-height(@img) * @scale;
+              background-image: url(@img);
+              background-size: 100%;
+              background-repeat: no-repeat;
+
+              @img: './img/headline-4.svg';
+            }
           }
         }
       }
