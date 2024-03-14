@@ -55,6 +55,16 @@ const W = memo(({ transition, delay, index }: T & { index: number }) => {
   return <div style={style} />;
 });
 
+const Heart = memo(({ transition, delay }: T) => {
+  const [style, setStyle] = useTween({ opacity: 0, scale: 0 });
+  useEffect(() => {
+    if (transition === TransitionType.FadeIn) {
+      setStyle({ opacity: 1, scale: 1 }, { duration: 500, delay, easing: Bezier.outBack });
+    }
+  }, [transition]);
+  return <div style={style} />;
+});
+
 const Headline = memo(() => {
   const [transition, setTransition] = useState(TransitionType.Unset);
 
@@ -73,6 +83,7 @@ const Headline = memo(() => {
               <HB transition={transition} delay={0} />
               <Symbols transition={transition} delay={1100} />
               <Symbols transition={transition} delay={1600} />
+              <Heart transition={transition} delay={300} />
             </div>
           </div>
         </div>
