@@ -4,6 +4,7 @@ import Headline from './headline';
 import Div100vh from 'react-div-100vh';
 import './index.less';
 import Knot from './knot';
+import Gtag from 'lesca-gtag';
 
 const Landing = memo(() => (
   <Div100vh>
@@ -20,6 +21,7 @@ const Landing = memo(() => (
             <button
               onClick={() => {
                 window.location.href = '#start';
+                Gtag.event('landing', '算出命定的毛小孩');
               }}
             >
               <div />

@@ -9,12 +9,15 @@ import { memo, useEffect, useMemo, useReducer } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './home';
+import Gtag from 'lesca-gtag';
 
 Fetcher.install({
   hostUrl: import.meta.env.VITE_API_PATH || './api',
   contentType: contentType.JSON,
   formatType: formatType.JSON,
 });
+
+Gtag.install(import.meta.env.VITE_GA_ID);
 
 if (import.meta.env.VITE_MOCKING === 'true') {
   import('@/mocks/browser').then((e) => {

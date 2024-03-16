@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import './index.less';
+import Gtag from 'lesca-gtag';
 
 const Belt = memo(() => (
   <div className='belt'>
@@ -32,12 +33,14 @@ const Footer = memo(() => {
           className='line'
           onClick={() => {
             window.open('https://lin.ee/hPQbxgG');
+            Gtag.event('landing', '加入好友');
           }}
         />
         <div
           className='qr'
           onClick={() => {
             window.open('https://lin.ee/hPQbxgG');
+            Gtag.event('landing', '加入好友');
           }}
         />
       </div>
